@@ -1,0 +1,32 @@
+.product-container {
+    display: flex;
+    margin-bottom: 20px;
+  }
+  
+  .product-container img {
+    width: 300px;
+    height: 300px;
+    object-fit: contain;
+    margin-right: 20px;
+  }
+  
+  .product-details h2 {
+    margin-bottom: 10px;
+  }
+  
+  .product-details p {
+    margin-bottom: 5px;
+  }
+  
+  .product-details button {
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .product-details button:hover {
+    background-color: #555;
+  }
+  
