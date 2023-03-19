@@ -1,42 +1,64 @@
-
-import './App.css';
-import {ProductHome} from './container'
-// import { Navbar}  from './components/Navbar';
-import React from 'react'
-import "bootstrap/dist/css/bootstrap.min.css"
-// import {Login} from './components';
-// import {Register} from './components';
-// import {Cart} from './components';
-// import {Basic} from './components';
-import { Router } from 'react-router-dom';
-import { Route } from 'react-router-dom';
-import Login from './components/Login';
-import Register from './components/Register';
-import Cart from './components/Cart';
-import Basic from './components/Shippingaddress';
-
-
+//jshint esversion: 9
+import "./App.css";
+import ProductPage from "./pages/ProductPage";
+import ProductsList from "./pages/ProductList";
+import CartPage from "./pages/CartPage";
+import Home from "./pages/Home";
+import "bootstrap/dist/css/bootstrap.min.css";
+import 'react-toastify/dist/ReactToastify.css';
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Navbar from "./components/navbar_footer/navbar";
+import Checkout from "./pages/Checkout";
+import ScrollToTop from "./util/ScrollToTop";
+import { ToastContainer } from 'react-toastify';
+import ViewAll from "./pages/ViewAll";
+import Register from "./components/register/register";
+import Login from "./components/login/login";
 
 function App() {
-  return (
-    <div className="App">
-    {/* <Navbar /> */}
-    <ProductHome/>
-    {/* <Login/> */}
-    {/* <Register/> */}
-    {/* <Cart/> */}
-    {/* <Basic/> */}
-    {/* <Router>
-      <main className="py-3">
-      <Route exact path="/register" component={Register} />
-          <Route path='/login' render={Login} />
-          {/* <Route path='/register' render={Register} /> */}
-          
-      {/* </main>
-    </Router> */} 
-    </div>
-  );
-
+    return (
+        <Router>
+            {/* <ScrollToTop /> */}
+            <Navbar />
+            <Switch>
+                <Route exact path="/">
+                    <Home />
+                </Route>
+                <Route exact path="/home">
+                    <ProductsList />
+                </Route>
+                <Route exact path="/product/:id">
+                    <ProductPage />
+                </Route>
+                <Route exact path="/register">
+                    <Register/>
+                </Route>
+                <Route exact path="/login">
+                    <Login/>
+                </Route>
+                <Route exact path="/">
+                    <Home />
+                </Route>
+                <Route exact path="/cart">
+                    <CartPage />
+                </Route>
+                <Route exact path="/checkout">
+                    <Checkout />
+                </Route>
+            </Switch>
+                <ToastContainer
+                    position="top-right"
+                    autoClose={2002}
+                    hideProgressBar={false}
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+                />
+        </Router>
+    );
 }
 
 export default App;
