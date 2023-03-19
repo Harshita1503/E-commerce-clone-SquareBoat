@@ -32,6 +32,9 @@ ALLOWED_HOSTS = []
 STATIC_ROOT = '/var/www/AmazonBE/static/'
 
 
+API_ENDPOINT = 'https://e-commerce-clone-square-boat-7468.vercel.app/
+
+
 
 # Application definition
 
